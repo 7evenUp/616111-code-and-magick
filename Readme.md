@@ -2,6 +2,7 @@
 
 * Студент: [Артём Шелудешев](https://up.htmlacademy.ru/javascript/13/user/616111).
 * Наставник: `Денис Быков`.
+* Ссылка наставника: https://up.htmlacademy.ru/javascript/13/user/66426.
 
 ---
 
