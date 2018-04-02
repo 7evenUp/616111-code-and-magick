@@ -10,12 +10,12 @@ var BAR_HEIGHT = 150;
 var BAR_WIDTH = 40;
 var BAR_GAP = 50;
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
   for (var i = 0; i < arr.length; i++) {
@@ -27,7 +27,7 @@ var getMaxElement = function(arr) {
   return maxElement;
 };
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
 
   // Отрисовка белого фона с сообщением победы
 
@@ -47,7 +47,7 @@ window.renderStatistics = function(ctx, names, times) {
   // Отрисовка гистограммы
 
   for (var i = 0; i < names.length; i++) {
-    var currentBarHeight = Math.floor((times[i] * BAR_HEIGHT) / maxTime)
+    var currentBarHeight = Math.floor((times[i] * BAR_HEIGHT) / maxTime);
 
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
     ctx.textAlign = 'center';
@@ -61,7 +61,7 @@ window.renderStatistics = function(ctx, names, times) {
     ctx.fillRect(CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + GAP * 4 + (BAR_HEIGHT - currentBarHeight), BAR_WIDTH, currentBarHeight);
 
     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillText(names[i], CLOUD_X + BAR_GAP + BAR_WIDTH / 2 + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + GAP * 4 + BAR_HEIGHT + GAP/2);
+    ctx.fillText(names[i], CLOUD_X + BAR_GAP + BAR_WIDTH / 2 + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + GAP * 4 + BAR_HEIGHT + GAP / 2);
   }
 
 };
