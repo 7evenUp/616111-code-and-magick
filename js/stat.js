@@ -8,32 +8,36 @@ var CLOUD_HEIGHT = 270;
 var BAR_HEIGHT = 150;
 var CLOUD_WIDTH = 420;
 var BAR_WIDTH = 40;
+var SHADOW_X = 110;
+var SHADOW_Y = 20;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 20;
 var BAR_GAP = 50;
 var TITLE_TEXT = ['Ура вы победили!', 'Список результатов:'];
 var FONT = '16px PT Mono';
+var TEXT_BASELINE = 'hanging';
+var LINE_HEIGHT = 18;
 
 window.renderStatistics = function (ctx, names, times) {
   var drawCloud = function () {
     ctx.fillStyle = SHADOW_COLOR;
-    ctx.fillRect(CLOUD_X + 10, CLOUD_Y + 10, CLOUD_WIDTH, CLOUD_HEIGHT);
+    ctx.fillRect(SHADOW_X, SHADOW_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
     ctx.fillStyle = CLOUD_COLOR;
     ctx.fillRect(CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
   };
 
   var titleGapY = CLOUD_Y;
   var drawTitle = function (text) {
-    var titlePosX = CLOUD_X + 24;
-    var titlePosY = CLOUD_Y + 16;
+    var titlePosX = CLOUD_X + GAP;
+    var titlePosY = CLOUD_Y + LINE_HEIGHT;
     ctx.font = FONT;
     ctx.fillStyle = FONT_COLOR;
-    ctx.textBaseline = 'hanging';
+    ctx.textBaseline = TEXT_BASELINE;
     ctx.textAlign = 'start';
     for (var i = 0; i < text.length; i++) {
       ctx.fillText(text[i], titlePosX, titlePosY);
-      titlePosY += 18;
+      titlePosY += LINE_HEIGHT;
     }
     titleGapY += titlePosY;
   };
