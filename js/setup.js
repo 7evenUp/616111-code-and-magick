@@ -18,10 +18,10 @@ var getRandArrayIndex = function (arr) {
 // Создаём данные для отображения мага
 var createWizardElement = function () {
   return {
-      name: NAMES[getRandArrayIndex(NAMES)] + ' ' + SECOND_NAMES[getRandArrayIndex(SECOND_NAMES)],
-      coatColor: COAT_COLORS[getRandArrayIndex(COAT_COLORS)],
-      eyesColor: EYES_COLORS[getRandArrayIndex(EYES_COLORS)]
-   };
+    name: NAMES[getRandArrayIndex(NAMES)] + ' ' + SECOND_NAMES[getRandArrayIndex(SECOND_NAMES)],
+    coatColor: COAT_COLORS[getRandArrayIndex(COAT_COLORS)],
+    eyesColor: EYES_COLORS[getRandArrayIndex(EYES_COLORS)]
+  };
 };
 
 // Заполняем шаблон сгенерированными данными
