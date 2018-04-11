@@ -30,11 +30,13 @@ var getMaxElement = function (arr) {
 };
 
 var getRandomInteger = function (min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+  var rand = min - 0.5 + Math.random() * (max - min + 1)
+  rand = Math.round(rand);
+  return rand;
 };
 
 var getRandomColor = function () {
-  return 'rgb(35, ' + getRandomInteger(35, 256) + ', 255)';
+  return 'rgb(35, ' + getRandomInteger(35, 255) + ', 255)';
 };
 
 window.renderStatistics = function (ctx, names, times) {

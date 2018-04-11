@@ -5,14 +5,16 @@ var SECOND_NAMES = ['да Марья', 'Верон', 'Мирабелла', 'Ва
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
-// Функция генерирует случайное число в промежутке [min;max);
+// Функция генерирует случайное число
 var getRandomInteger = function (min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+  var rand = min - 0.5 + Math.random() * (max - min + 1)
+  rand = Math.round(rand);
+  return rand;
 };
 
 // Функция получения случайного индекса массива
 var getRandArrayIndex = function (arr) {
-  return getRandomInteger(0, arr.length);
+  return getRandomInteger(0, arr.length - 1);
 };
 
 // Создаём данные для отображения мага
