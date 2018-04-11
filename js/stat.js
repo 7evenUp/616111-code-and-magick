@@ -79,7 +79,7 @@ window.renderStatistics = function (ctx, names, times) {
       var posX = beginPosX + (BAR_GAP + BAR_WIDTH) * i;
       var textPosX = posX + BAR_WIDTH / 2;
       var timePosY = LINE_HEIGHT * 4 + (BAR_HEIGHT - currentBarHeight);
-      var barPosY =  GAP + timePosY;
+      var barPosY = GAP + timePosY;
       var namePosY = barPosY + currentBarHeight + GAP / 2;
       var color = names[i] === 'Вы' ? BAR_COLOR_DEFAULT : getRandomColor();
       var time = String(Math.round(times[i]));
