@@ -7,7 +7,7 @@ var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 
 // Функция генерирует случайное число
 var getRandomInteger = function (min, max) {
-  var rand = min - 0.5 + Math.random() * (max - min + 1)
+  var rand = min - 0.5 + Math.random() * (max - min + 1);
   rand = Math.round(rand);
   return rand;
 };
