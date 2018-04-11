@@ -19,6 +19,24 @@ var FONT = '16px PT Mono';
 var TEXT_BASELINE = 'hanging';
 var LINE_HEIGHT = 18;
 
+var getMaxElement = function (arr) {
+  var maxElement = arr[0];
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] > maxElement) {
+      maxElement = arr[i];
+    }
+  }
+  return maxElement;
+};
+
+var getRandomInteger = function (min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+var getRandomColor = function () {
+  return 'rgb(35, ' + getRandomInteger(35, 256) + ', 255)';
+};
+
 window.renderStatistics = function (ctx, names, times) {
   var drawCloud = function () {
     ctx.fillStyle = SHADOW_COLOR;
@@ -27,7 +45,6 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillRect(CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
   };
 
-  var titleGapY = CLOUD_Y;
   var drawTitle = function (text) {
     var titlePosX = CLOUD_X + GAP;
     var titlePosY = CLOUD_Y + LINE_HEIGHT;
@@ -39,7 +56,6 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillText(text[i], titlePosX, titlePosY);
       titlePosY += LINE_HEIGHT;
     }
-    titleGapY += titlePosY;
   };
 
   var renderBar = function (x, y, width, height, color) {
@@ -62,8 +78,8 @@ window.renderStatistics = function (ctx, names, times) {
       var currentBarHeight = Math.floor((times[i] * BAR_HEIGHT) / maxTime);
       var posX = beginPosX + (BAR_GAP + BAR_WIDTH) * i;
       var textPosX = posX + BAR_WIDTH / 2;
-      var timePosY = titleGapY + (BAR_HEIGHT - currentBarHeight);
-      var barPosY = titleGapY + GAP + (BAR_HEIGHT - currentBarHeight);
+      var timePosY = LINE_HEIGHT * 4 + (BAR_HEIGHT - currentBarHeight);
+      var barPosY =  GAP + timePosY;
       var namePosY = barPosY + currentBarHeight + GAP / 2;
       var color = names[i] === 'Вы' ? BAR_COLOR_DEFAULT : getRandomColor();
       var time = String(Math.round(times[i]));
@@ -72,26 +88,7 @@ window.renderStatistics = function (ctx, names, times) {
       renderText(names[i], textPosX, namePosY);
     }
   };
-
   drawCloud();
   drawTitle(TITLE_TEXT);
   drawCharts();
-};
-
-var getMaxElement = function (arr) {
-  var maxElement = arr[0];
-  for (var i = 1; i < arr.length; i++) {
-    if (arr[i] > maxElement) {
-      maxElement = arr[i];
-    }
-  }
-  return maxElement;
-};
-
-var getRandomInteger = function (min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-};
-
-var getRandomColor = function () {
-  return 'rgb(35, ' + getRandomInteger(35, 256) + ', 255)';
 };
